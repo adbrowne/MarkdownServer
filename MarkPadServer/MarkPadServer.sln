@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 11
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkPadServer", "MarkPadServer\MarkPadServer.csproj", "{4679138D-957C-456F-AF74-65B0F114122A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4679138D-957C-456F-AF74-65B0F114122A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4679138D-957C-456F-AF74-65B0F114122A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4679138D-957C-456F-AF74-65B0F114122A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4679138D-957C-456F-AF74-65B0F114122A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
