@@ -24,16 +24,25 @@ namespace MarkPadServer.Storage
 
         public void Add(string name, string fileContent)
         {
-            var fileName = name + ".md";
-            using(var writer = File.CreateText(Path.Combine(this.directory, fileName)))
+            using(var writer = File.CreateText(GetFilePath(name)))
             {
                 writer.Write(fileContent);
             }
         }
 
+        private static string GetFileName(string name)
+        {
+            return name + ".md";
+        }
+
         public string GetContent(string name)
         {
-            return File.ReadAllText(Path.Combine(this.directory, name + ".md")) ;
+            return File.ReadAllText(this.GetFilePath(name)) ;
+        }
+
+        private string GetFilePath(string name)
+        {
+            return Path.Combine(this.directory, GetFileName(name));
         }
     }
 }
