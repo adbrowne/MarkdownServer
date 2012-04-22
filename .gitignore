@@ -56,3 +56,6 @@ packages/
 .sass-cache
 *~
 *.swp
+
+#MdPages
+MarkPadServer/MarkPadServer/MdPages/*.md
