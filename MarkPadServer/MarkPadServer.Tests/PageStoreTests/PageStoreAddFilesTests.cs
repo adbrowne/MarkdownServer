@@ -1,13 +1,13 @@
 namespace MarkPadServer.Tests.PageStoreTests
 {
-    using MarkPadServer.Storage;
+    using MarkPadServer.PageStore;
 
     using NUnit.Framework;
 
     [TestFixture]
     public class PageStoreAddFilesTests : PageStoreTestsBase
     {
-        private PageStore pageStore;
+        private FileSytemPageStore fileSytemPageStore;
 
         private const string TestFileContent = "file content";
 
@@ -16,7 +16,7 @@ namespace MarkPadServer.Tests.PageStoreTests
         {
             EnsureEmptyTestStore();
 
-            this.pageStore = new PageStore(TestStoreName);
+            this.fileSytemPageStore = new FileSytemPageStore(TestStoreName);
         }
 
         [TearDown]
@@ -28,9 +28,9 @@ namespace MarkPadServer.Tests.PageStoreTests
         [Test]
         public void CanAddFile()
         {
-            this.pageStore.Add("Page2", TestFileContent);
+            this.fileSytemPageStore.Add("Page2", TestFileContent);
 
-            var fileListAfterAdd = this.pageStore.ListPages();
+            var fileListAfterAdd = this.fileSytemPageStore.ListPages();
 
             CollectionAssert.Contains(fileListAfterAdd, "Page2");
         }
@@ -38,9 +38,9 @@ namespace MarkPadServer.Tests.PageStoreTests
         [Test]
         public void AddedFileHasCorrectContent()
         {
-            this.pageStore.Add("Page2", TestFileContent);
+            this.fileSytemPageStore.Add("Page2", TestFileContent);
 
-            var content = this.pageStore.GetPageContent("Page2");
+            var content = this.fileSytemPageStore.GetPageContent("Page2");
 
             Assert.AreEqual(TestFileContent, content);
         }

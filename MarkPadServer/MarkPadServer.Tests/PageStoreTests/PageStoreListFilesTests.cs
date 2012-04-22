@@ -3,14 +3,14 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using MarkPadServer.Storage;
+    using MarkPadServer.PageStore;
 
     using NUnit.Framework;
 
     [TestFixture]
     public class PageStoreListFilesTests : PageStoreTestsBase
     {
-        private PageStore pageStore;
+        private FileSytemPageStore fileSytemPageStore;
 
         private IEnumerable<string> files;
 
@@ -22,8 +22,8 @@
             SetupPageStoreFile("NotAPage.txt");
             SetupPageStoreFile("Page1.md");
 
-            this.pageStore = new PageStore(TestStoreName);
-            this.files = this.pageStore.ListPages();
+            this.fileSytemPageStore = new FileSytemPageStore(TestStoreName);
+            this.files = this.fileSytemPageStore.ListPages();
         }
 
         [TestFixtureTearDown]

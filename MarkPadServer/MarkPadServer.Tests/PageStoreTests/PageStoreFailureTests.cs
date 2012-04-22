@@ -2,7 +2,7 @@ namespace MarkPadServer.Tests.PageStoreTests
 {
     using System.IO;
 
-    using MarkPadServer.Storage;
+    using MarkPadServer.PageStore;
 
     using NUnit.Framework;
 
@@ -12,7 +12,7 @@ namespace MarkPadServer.Tests.PageStoreTests
         [Test]
         public void WillThrowDirectoryNotFoundIfLocationDoesNotExist()
         {
-            Assert.Throws<DirectoryNotFoundException>(() => new PageStore(@"not existant directory name"));
+            Assert.Throws<DirectoryNotFoundException>(() => new FileSytemPageStore(@"not existant directory name"));
         }
     }
 }
