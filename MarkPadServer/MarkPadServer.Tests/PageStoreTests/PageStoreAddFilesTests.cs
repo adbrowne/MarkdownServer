@@ -30,7 +30,7 @@ namespace MarkPadServer.Tests.PageStoreTests
         {
             this.pageStore.Add("Page2", TestFileContent);
 
-            var fileListAfterAdd = this.pageStore.GetPages();
+            var fileListAfterAdd = this.pageStore.ListPages();
 
             CollectionAssert.Contains(fileListAfterAdd, "Page2");
         }
@@ -40,7 +40,7 @@ namespace MarkPadServer.Tests.PageStoreTests
         {
             this.pageStore.Add("Page2", TestFileContent);
 
-            var content = this.pageStore.GetContent("Page2");
+            var content = this.pageStore.GetPageContent("Page2");
 
             Assert.AreEqual(TestFileContent, content);
         }
