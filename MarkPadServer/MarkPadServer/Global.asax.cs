@@ -29,7 +29,7 @@ namespace MarkPadServer
             routes.MapRoute(
                 name: "MdPage",
                 url: "page/{name}",
-                defaults: new { controller = "Pages", action = "View" }
+                defaults: new { controller = "Pages", action = "ViewPage" }
             );
 
             routes.MapHttpRoute(
