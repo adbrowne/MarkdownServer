@@ -4,11 +4,11 @@ namespace MarkPadServer.PageStore
     using System.IO;
     using System.Linq;
 
-    public class FileSytemPageStore : IPageStore
+    public class FileSystemPageStore : IPageStore
     {
         private readonly string directory;
 
-        public FileSytemPageStore(string directory)
+        public FileSystemPageStore(string directory)
         {
             if(!Directory.Exists(directory))
             {

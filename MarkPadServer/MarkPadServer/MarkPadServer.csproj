@@ -148,7 +148,7 @@
   <ItemGroup>
     <Compile Include="PageStore\IPageStore.cs" />
     <Compile Include="PageStore\MarkDownPageStore.cs" />
-    <Compile Include="PageStore\FileSytemPageStore.cs" />
+    <Compile Include="PageStore\FileSystemPageStore.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -235,6 +235,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Pages\ViewPage.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

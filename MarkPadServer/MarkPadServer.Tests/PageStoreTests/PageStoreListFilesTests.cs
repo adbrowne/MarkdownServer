@@ -10,7 +10,7 @@
     [TestFixture]
     public class PageStoreListFilesTests : PageStoreTestsBase
     {
-        private FileSytemPageStore fileSytemPageStore;
+        private FileSystemPageStore fileSystemPageStore;
 
         private IEnumerable<string> files;
 
@@ -22,8 +22,8 @@
             SetupPageStoreFile("NotAPage.txt");
             SetupPageStoreFile("Page1.md");
 
-            this.fileSytemPageStore = new FileSytemPageStore(TestStoreName);
-            this.files = this.fileSytemPageStore.ListPages();
+            this.fileSystemPageStore = new FileSystemPageStore(TestStoreName);
+            this.files = this.fileSystemPageStore.ListPages();
         }
 
         [TestFixtureTearDown]

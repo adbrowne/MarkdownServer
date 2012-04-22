@@ -12,6 +12,12 @@ using System.Web.Routing;
 
 namespace MarkPadServer
 {
+    using Autofac;
+    using Autofac.Core;
+    using Autofac.Integration.Mvc;
+
+    using MarkPadServer.PageStore;
+
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
 
@@ -51,6 +57,18 @@ namespace MarkPadServer
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            var builder = new ContainerBuilder();
+            builder.RegisterType<FileSystemPageStore>().WithParameter("directory", Server.MapPath("~/MdPages"));
+            builder.RegisterType<MarkDownPageStore>().As<IPageStore>()
+                .WithParameter(
+                new ResolvedParameter(
+                    (p, c) => p.ParameterType == typeof(IPageStore), 
+                    (p, c) => c.Resolve<FileSystemPageStore>()));
+
+            builder.RegisterControllers(typeof(WebApiApplication).Assembly);
+            var container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
             BundleTable.Bundles.RegisterTemplateBundles();
         }
