@@ -23,7 +23,7 @@
             SetupPageStoreFile("Page1.md");
 
             this.pageStore = new PageStore(TestStoreName);
-            this.files = this.pageStore.GetFilesList();
+            this.files = this.pageStore.GetPages();
         }
 
         [TestFixtureTearDown]

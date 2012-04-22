@@ -17,7 +17,7 @@ namespace MarkPadServer.Storage
             this.directory = directory;
         }
 
-        public IEnumerable<string> GetFilesList()
+        public IEnumerable<string> ListPages()
         {
             return Directory.GetFiles(this.directory, "*.md").Select(Path.GetFileNameWithoutExtension);
         }
@@ -30,12 +30,7 @@ namespace MarkPadServer.Storage
             }
         }
 
-        private static string GetFileName(string name)
-        {
-            return name + ".md";
-        }
-
-        public string GetContent(string name)
+        public string GetPageContent(string name)
         {
             return File.ReadAllText(this.GetFilePath(name)) ;
         }
@@ -43,6 +38,11 @@ namespace MarkPadServer.Storage
         private string GetFilePath(string name)
         {
             return Path.Combine(this.directory, GetFileName(name));
+        }
+        
+        private static string GetFileName(string name)
+        {
+            return name + ".md";
         }
     }
 }
